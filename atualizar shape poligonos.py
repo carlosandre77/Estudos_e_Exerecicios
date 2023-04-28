@@ -58,8 +58,7 @@ i = 0
 for feature in lay_bairros.getFeatures():
         id = feature.id()
         ##instanciando os campos de cada layer
-        campos_bairros = lay_bairros.fields()
-        campos_qudras = lay_bairros.fields()
+        campos = lay_bairros.fields()
         geom = feature.geometry()
         indice_campo_area = campos.indexFromName(str(campo_area))
         indice_campo_perimetro = campos.indexFromName(str(campo_perimetro))

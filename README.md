@@ -1,4 +1,4 @@
-# Estudos_e_Exercicios
+# Estudos e Exercicios
 
 Repositorio criado para exercicios e estudos de programação
  

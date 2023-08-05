@@ -1,4 +1,4 @@
-# Estudos e Exercicios test2
+# Estudos e Exercicios 
 
-Repositorio criado para exercicios e estudos de programação testes
+Repositorio criado para exercicios e estudos de programação testes 1
  

@@ -1,4 +1,5 @@
 # Estudos e Exercicios 
 
-Repositorio criado para exercicios e estudos de programação testes 1
+Repositorio criado para exercicios e estudos de programação 
+*comando git push
  

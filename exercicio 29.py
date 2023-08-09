@@ -1,0 +1,1 @@
+velocidade=float(input())

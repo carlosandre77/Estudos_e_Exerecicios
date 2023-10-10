@@ -1,4 +1,4 @@
 # Estudos e Exercicios 
 
-Repositorio criado para exercicios e estudos de programação 
+Repositorio criado para armazenar exercicios, testes ou estudos de funcionalidades em python
 

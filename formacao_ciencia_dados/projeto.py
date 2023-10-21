@@ -10,19 +10,9 @@ cont = 0
 loc = [2,2] # localização do fornecedor para ser usada para caucular as distancias
 
 # definindo os cardapios
-tradicional = ['hamburguer','batata frita']
-vegano = ['salada','aveia']
+tradicional = ['hamburguer','batata frita','Strogonoff']
+vegano = ['salada','Salada de Quinoa','aveia']
 cardapios = [tradicional,vegano]
-
-# dados_carregados = load_json_file('export','arquivo')
-# lista_ids = []
-# for i in dados_carregados:
-#     lista_ids.append(i[0])
-
-# maior_id = max(lista_ids)
-# cont = maior_id[0] 
-# print(cont)
-
 
 #dentro do loop ficara todo o codigo ao final de cada laço as informações do restalrante será salva no arquivo.json
 while True:
@@ -33,15 +23,19 @@ while True:
 
     # A função load_json_file carrega os dados do arquivo salvo, depois salva na variavel dados_carregados 
     dados_carregados = load_json_file('export','arquivo')
+    
     lista_ids = []
+    maior_id = []
 
-    for i in dados_carregados:
-        lista_ids.append(i[0])
-    
-    maior_id = max(lista_ids) 
-    
-    
-    restaurante.append([[maior_id[0]+1]]) # usa o valor do contador para criar o codigo do id
+    if len(lista_ids) >0: 
+        for i in dados_carregados:
+            lista_ids.append(i[0]) 
+            maior_id = max(lista_ids)
+            restaurante.append([[maior_id[0]+1]]) # usa o valor do contador para criar o codigo do id
+    else:
+        restaurante.append([[cont]])
+
+
     restaurante[cont].append(input('Digite o nome do restaurante: ')) 
     
     # recebe uma string dividindo em 2 valores usando a ',' como separador Ex: '3,4' -> ['3','4'] 
@@ -61,23 +55,36 @@ while True:
     cardapio_selecionado = int(input('Digite o cardapio 0 para tradicional 1 para vegano: '))# seleciona qual cardapio
     restaurante[cont].append(cardapios[cardapio_selecionado])#adiciona o cardapio seecionado  
 
-    
-    dados = restaurante[cont]
-    dados_carregados.append(dados)
-    save_json_file('export','arquivo',dados_carregados)
-
-    print('restaurante adicionado')
-    print( restaurante[cont])  
+    if len(lista_ids) >0:
+        dados = restaurante[cont]
+        dados_carregados.append(dados)
+        save_json_file('export','arquivo',dados_carregados)
+    else:
+        save_json_file('export','arquivo',restaurante)
+        print('restaurante adicionado')
+        print( restaurante[cont])  
     cont += 1
 
-dados_carregados = load_json_file('export','arquivo')
-menor_distancia = dados_carregados[0][2][2]
-for i in dados_carregados:
-    if int(i[2][2]) > menor_distancia:
-        pass
-    else:
-        menor_distancia = i[2][2]
-        restaurante_mais_proximo = i[0:3]
+
+
+#definir qual o restaurante mais proximo
+if len(lista_ids) >0:
+    dados_carregados = load_json_file('export','arquivo')
+    menor_distancia = dados_carregados[0][2][2] #recebe o valor de distancia do primeiro indice dos dados gerais para comparar depois 
+    for i in dados_carregados:
+        if int(i[2][2]) > menor_distancia:
+            pass
+        else:
+            menor_distancia = i[2][2]
+            restaurante_mais_proximo = i[0:3]
+else:
+    menor_distancia = restaurante[0][2][2] #recebe o valor de distancia do primeiro indice da lista executada para comparar depois 
+    for i in restaurante:
+        if int(i[2][2]) > menor_distancia:
+            pass
+        else:
+            menor_distancia = i[2][2]
+            restaurante_mais_proximo = i[0:3]
 
 print(f'O restaurante mais proximo é: {restaurante_mais_proximo[1]}, codigo: {restaurante_mais_proximo[0]}, distancia: {restaurante_mais_proximo[2][2]}')
 

@@ -1,0 +1,12 @@
+
+def cadastro():
+    restaurante = []
+    nome_restauramte = input("Digite o nome do restaurante: ")
+    lat = float(input("Digite a latitude do restaurante: "))
+    long = float(input("Digite a longitude do restaurante: "))
+    n_pedidos = int(input("Digite o numero de pedidos: "))
+    #dados = {nome_restauramte: {"local": [lat, long], "numero_pedidos": n_pedidos, "pedidos": []}}
+    restaurante.append([nome_restauramte,[lat,long],n_pedidos])
+    return restaurante
+cadastro()
+

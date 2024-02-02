@@ -1,0 +1,35 @@
+body {
+    background: #0f5f26;
+}
+
+body {
+    background: #b1bac2;
+}
+
+p#n1{
+    color: red
+}
+
+.n2 {
+    color: rgb(198, 191, 48)
+}
+
+header {
+    border: 1px solid red;
+    padding: 60px;
+}
+
+h1 {
+    border:1px solid green;
+    height: 60px;
+    display: inline;
+}
+
+p {
+    margin: 20px;
+    border: 1px solid purple
+}
+span {
+    border: 1px solid pink;
+    display: block;
+}
